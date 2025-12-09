@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 40%;
+
+    --radius: 0.5rem;
+
+    /* IVELA Brand Colors */
+    --ivela-navy: 217 91% 25%;
+    --ivela-blue: 217 91% 40%;
+    --ivela-light-blue: 210 100% 95%;
+    --ivela-gold: 38 92% 50%;
+    --ivela-success: 142 76% 36%;
+    --ivela-warning: 38 92% 50%;
+    --ivela-info: 199 89% 48%;
+
+    /* Form specific */
+    --form-header: 217 91% 25%;
+    --form-section: 210 40% 96%;
+    --form-border: 214 32% 85%;
+    --form-label: 215 16% 35%;
+
+    --sidebar-background: 217 91% 15%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 91% 25%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 91% 30%;
+    --sidebar-ring: 38 92% 50%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 55%;
+
+    --ivela-navy: 217 91% 15%;
+    --ivela-blue: 217 91% 55%;
+    --ivela-light-blue: 217 40% 20%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 32% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 25%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .ivela-gradient {
+    background: linear-gradient(135deg, hsl(var(--ivela-navy)) 0%, hsl(var(--ivela-blue)) 100%);
+  }
+
+  .ivela-gradient-light {
+    background: linear-gradient(180deg, hsl(var(--ivela-light-blue)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .form-section {
+    @apply bg-card rounded-lg border border-border shadow-sm;
+  }
+
+  .form-header {
+    @apply ivela-gradient text-primary-foreground px-4 py-3 rounded-t-lg font-semibold;
+  }
+
+  .form-table {
+    @apply w-full border-collapse;
+  }
+
+  .form-table th {
+    @apply bg-muted px-3 py-2 text-left text-sm font-semibold text-foreground border border-border;
+  }
+
+  .form-table td {
+    @apply px-3 py-2 text-sm border border-border;
+  }
+
+  .form-input {
+    @apply w-full px-3 py-2 border border-input rounded-md bg-background text-foreground
+           focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-muted-foreground mb-1;
+  }
+
+  .score-badge {
+    @apply inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-semibold;
+  }
+
+  .score-1 {
+    @apply bg-destructive/20 text-destructive;
+  }
+
+  .score-2 {
+    @apply bg-orange-100 text-orange-700;
+  }
+
+  .score-3 {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+
+  .score-4 {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .score-5 {
+    @apply bg-primary/20 text-primary;
+  }
+
+  .signature-box {
+    @apply border-2 border-dashed border-border rounded-lg p-4 min-h-[80px]
+           flex items-center justify-center text-muted-foreground;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/30;
+  }
+
+  .shadow-ivela-lg {
+    box-shadow: 0 10px 40px -10px hsl(var(--ivela-navy) / 0.2);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  body {
+    background: white !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break {
+    page-break-before: always;
+  }
+
+  .form-section {
+    break-inside: avoid;
+  }
+}
